@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://ks7r04rh6de1"]
+
+[ext_resource type="Script" uid="uid://b6opvr83asm8x" path="res://Scripts/SpaceManager.gd" id="1_fowst"]
+[ext_resource type="PackedScene" uid="uid://cym2r2wylnovk" path="res://Scenes/Marker.tscn" id="2_fowst"]
+
+[node name="Node2D" type="Node2D" unique_id=1271171902]
+
+[node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238]
+script = ExtResource("1_fowst")
+
+[node name="Markers" type="Node2D" parent="SpaceManager" unique_id=1645097055]
+
+[node name="Marker" parent="SpaceManager/Markers" unique_id=1881708287 instance=ExtResource("2_fowst")]
+position = Vector2(77, 325)
+
+[node name="Marker2" parent="SpaceManager/Markers" unique_id=1982113284 instance=ExtResource("2_fowst")]
+position = Vector2(147, 325)
+
+[node name="Marker18" parent="SpaceManager/Markers" unique_id=1509517420 instance=ExtResource("2_fowst")]
+position = Vector2(165, 252)
+
+[node name="Marker19" parent="SpaceManager/Markers" unique_id=1885262311 instance=ExtResource("2_fowst")]
+position = Vector2(222, 200)
+
+[node name="Marker20" parent="SpaceManager/Markers" unique_id=1883133981 instance=ExtResource("2_fowst")]
+position = Vector2(208, 133)
+
+[node name="Marker21" parent="SpaceManager/Markers" unique_id=187752046 instance=ExtResource("2_fowst")]
+position = Vector2(145, 175)
+
+[node name="Marker22" parent="SpaceManager/Markers" unique_id=632433750 instance=ExtResource("2_fowst")]
+position = Vector2(100, 237)
+
+[node name="Marker3" parent="SpaceManager/Markers" unique_id=90715412 instance=ExtResource("2_fowst")]
+position = Vector2(217, 325)
+
+[node name="Marker14" parent="SpaceManager/Markers" unique_id=395142868 instance=ExtResource("2_fowst")]
+position = Vector2(230, 268)
+
+[node name="Marker15" parent="SpaceManager/Markers" unique_id=854827021 instance=ExtResource("2_fowst")]
+position = Vector2(230, 381)
+
+[node name="Marker23" parent="SpaceManager/Markers" unique_id=1143089236 instance=ExtResource("2_fowst")]
+position = Vector2(173, 379)
+
+[node name="Marker25" parent="SpaceManager/Markers" unique_id=1104514336 instance=ExtResource("2_fowst")]
+position = Vector2(99, 385)
+
+[node name="Marker26" parent="SpaceManager/Markers" unique_id=175758982 instance=ExtResource("2_fowst")]
+position = Vector2(144, 449)
+
+[node name="Marker27" parent="SpaceManager/Markers" unique_id=2129539626 instance=ExtResource("2_fowst")]
+position = Vector2(205, 502)
+
+[node name="Marker28" parent="SpaceManager/Markers" unique_id=904190013 instance=ExtResource("2_fowst")]
+position = Vector2(347, 443)
+
+[node name="Marker29" parent="SpaceManager/Markers" unique_id=569901294 instance=ExtResource("2_fowst")]
+position = Vector2(405, 377)
+
+[node name="Marker30" parent="SpaceManager/Markers" unique_id=2028310602 instance=ExtResource("2_fowst")]
+position = Vector2(469, 385)
+
+[node name="Marker31" parent="SpaceManager/Markers" unique_id=392542208 instance=ExtResource("2_fowst")]
+position = Vector2(362, 505)
+
+[node name="Marker32" parent="SpaceManager/Markers" unique_id=1839050880 instance=ExtResource("2_fowst")]
+position = Vector2(425, 449)
+
+[node name="Marker24" parent="SpaceManager/Markers" unique_id=855557629 instance=ExtResource("2_fowst")]
+position = Vector2(228, 438)
+
+[node name="Marker16" parent="SpaceManager/Markers" unique_id=1897460802 instance=ExtResource("2_fowst")]
+position = Vector2(343, 381)
+
+[node name="Marker17" parent="SpaceManager/Markers" unique_id=1264992021 instance=ExtResource("2_fowst")]
+position = Vector2(343, 270)
+
+[node name="Marker33" parent="SpaceManager/Markers" unique_id=1358422590 instance=ExtResource("2_fowst")]
+position = Vector2(343, 203)
+
+[node name="Marker34" parent="SpaceManager/Markers" unique_id=381700578 instance=ExtResource("2_fowst")]
+position = Vector2(405, 265)
+
+[node name="Marker35" parent="SpaceManager/Markers" unique_id=610730846 instance=ExtResource("2_fowst")]
+position = Vector2(471, 260)
+
+[node name="Marker36" parent="SpaceManager/Markers" unique_id=308146476 instance=ExtResource("2_fowst")]
+position = Vector2(422, 184)
+
+[node name="Marker37" parent="SpaceManager/Markers" unique_id=366656183 instance=ExtResource("2_fowst")]
+position = Vector2(358, 134)
+
+[node name="Marker4" parent="SpaceManager/Markers" unique_id=2026604381 instance=ExtResource("2_fowst")]
+position = Vector2(287, 326)
+
+[node name="Marker9" parent="SpaceManager/Markers" unique_id=1013134915 instance=ExtResource("2_fowst")]
+position = Vector2(287, 255)
+
+[node name="Marker10" parent="SpaceManager/Markers" unique_id=1684086246 instance=ExtResource("2_fowst")]
+position = Vector2(287, 185)
+
+[node name="Marker11" parent="SpaceManager/Markers" unique_id=1243788740 instance=ExtResource("2_fowst")]
+position = Vector2(287, 115)
+
+[node name="Marker8" parent="SpaceManager/Markers" unique_id=1024635535 instance=ExtResource("2_fowst")]
+position = Vector2(287, 395)
+
+[node name="Marker12" parent="SpaceManager/Markers" unique_id=63867749 instance=ExtResource("2_fowst")]
+position = Vector2(287, 465)
+
+[node name="Marker13" parent="SpaceManager/Markers" unique_id=343136414 instance=ExtResource("2_fowst")]
+position = Vector2(287, 535)
+
+[node name="Marker5" parent="SpaceManager/Markers" unique_id=1305528417 instance=ExtResource("2_fowst")]
+position = Vector2(357, 326)
+
+[node name="Marker6" parent="SpaceManager/Markers" unique_id=1989128691 instance=ExtResource("2_fowst")]
+position = Vector2(427, 326)
+
+[node name="Marker7" parent="SpaceManager/Markers" unique_id=1156268492 instance=ExtResource("2_fowst")]
+position = Vector2(497, 325)

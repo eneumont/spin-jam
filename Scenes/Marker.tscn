@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cym2r2wylnovk"]
+
+[ext_resource type="Script" uid="uid://18qktxso5bea" path="res://Scripts/Marker.gd" id="1_q7bji"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywg1y"]
+radius = 20.0
+
+[node name="Marker" type="Marker2D" unique_id=1881708287]
+script = ExtResource("1_q7bji")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1566032857]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1948377813]
+shape = SubResource("CircleShape2D_ywg1y")

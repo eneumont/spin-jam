@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://fvynt5tt0bd6"]
+
+[ext_resource type="Script" uid="uid://c6yt8lmtppcwt" path="res://Scripts/Space.gd" id="2_4bgmn"]
+[ext_resource type="Texture2D" uid="uid://dwrfgvfbwupyt" path="res://Textures/circleo.png" id="2_5y05v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_di8lm"]
+radius = 25.0
+
+[node name="Space" type="Node2D" unique_id=863871024]
+script = ExtResource("2_4bgmn")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=557604167]
+position = Vector2(0.50000095, -0.5000019)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("2_5y05v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1178439597]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=49201989]
+shape = SubResource("CircleShape2D_di8lm")
+
+[connection signal="input_event" from="Area2D" to="Sprite" method="click"]
