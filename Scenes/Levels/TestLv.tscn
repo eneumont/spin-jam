@@ -5,6 +5,14 @@
 
 [node name="Node2D" type="Node2D" unique_id=1271171902]
 
+[node name="Backgrounds" type="Node2D" parent="." unique_id=858579731]
+
+[node name="MapBg" type="Sprite2D" parent="Backgrounds" unique_id=2012299834]
+position = Vector2(290, 303)
+
+[node name="RoomBg" type="Sprite2D" parent="Backgrounds" unique_id=452050320]
+position = Vector2(849, 306)
+
 [node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238]
 script = ExtResource("1_fowst")
 
