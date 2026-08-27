@@ -6,7 +6,7 @@ enum Type {
 	FIGHT,
 	ELITE_FIGHT,
 	BOSS_FIGHT,
-	ENCOUNTER,
+	EVENT,
 	RANDOM,
 	SPIN,
 	TREASURE,
@@ -18,10 +18,9 @@ enum Type {
 class Data:
 	var tele_tp_pos: Vector3
 	
-
 var available_spaces: Array[Node2D]
 var space_type: Type = Type.START
-var data: int #figure class
+var data: Data
 
 func setup():
 	pass
@@ -32,7 +31,7 @@ func activate():
 			pass
 		Type.FIGHT, Type.ELITE_FIGHT, Type.BOSS_FIGHT:
 			pass
-		Type.ENCOUNTER:
+		Type.EVENT:
 			pass
 		Type.RANDOM:
 			pass

@@ -13,12 +13,16 @@ position = Vector2(290, 303)
 [node name="RoomBg" type="Sprite2D" parent="Backgrounds" unique_id=452050320]
 position = Vector2(849, 306)
 
-[node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238]
+[node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238 node_paths=PackedStringArray("ring1_markers", "ring2_markers", "ring3_markers", "start_marker")]
 script = ExtResource("1_fowst")
+ring1_markers = [NodePath("Markers/Marker3"), NodePath("Markers/Marker14"), NodePath("Markers/Marker9"), NodePath("Markers/Marker17"), NodePath("Markers/Marker5"), NodePath("Markers/Marker16"), NodePath("Markers/Marker8"), NodePath("Markers/Marker15")]
+ring2_markers = [NodePath("Markers/Marker2"), NodePath("Markers/Marker18"), NodePath("Markers/Marker19"), NodePath("Markers/Marker10"), NodePath("Markers/Marker33"), NodePath("Markers/Marker34"), NodePath("Markers/Marker6"), NodePath("Markers/Marker29"), NodePath("Markers/Marker28"), NodePath("Markers/Marker12"), NodePath("Markers/Marker24"), NodePath("Markers/Marker23")]
+ring3_markers = [NodePath("Markers/Marker1"), NodePath("Markers/Marker22"), NodePath("Markers/Marker21"), NodePath("Markers/Marker20"), NodePath("Markers/Marker11"), NodePath("Markers/Marker37"), NodePath("Markers/Marker36"), NodePath("Markers/Marker35"), NodePath("Markers/Marker7"), NodePath("Markers/Marker30"), NodePath("Markers/Marker32"), NodePath("Markers/Marker31"), NodePath("Markers/Marker13"), NodePath("Markers/Marker27"), NodePath("Markers/Marker26"), NodePath("Markers/Marker25")]
+start_marker = NodePath("Markers/Marker4")
 
 [node name="Markers" type="Node2D" parent="SpaceManager" unique_id=1645097055]
 
-[node name="Marker" parent="SpaceManager/Markers" unique_id=1881708287 instance=ExtResource("2_fowst")]
+[node name="Marker1" parent="SpaceManager/Markers" unique_id=1881708287 instance=ExtResource("2_fowst")]
 position = Vector2(77, 325)
 
 [node name="Marker2" parent="SpaceManager/Markers" unique_id=1982113284 instance=ExtResource("2_fowst")]

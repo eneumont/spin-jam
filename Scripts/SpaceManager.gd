@@ -4,10 +4,9 @@ var space_scn: PackedScene = preload("res://Scenes/Space.tscn")
 
 var teleport : bool = false
 
-@export var ring1 : Array[Marker2D]
-@export var ring2 : Array[Marker2D]
-@export var ring3 : Array[Marker2D]
-
+var ring1
+var ring2
+var ring3
 var row1
 var row2
 var row3
@@ -15,7 +14,16 @@ var row4
 var row5
 var row6
 
+@export var ring1_markers: Array[Marker]
+@export var ring2_markers: Array[Marker]
+@export var ring3_markers: Array[Marker]
+@export var start_marker: Marker
+
+func _ready() -> void:
+	setup()
+
 func setup():
+	start_marker.add_child(create_space(Space.Type.START, Space.Data.new()))
 	for i in range(3):
 		set_ring(i + 1)
 
@@ -26,34 +34,89 @@ func set_ring(row: int):
 	
 	match row:
 		1:
+			#4 or 3 walls?
 			randomize()
-			wall_count = 4 if randi_range(0, 1) == 1 else 3
+			wall_count = randi_range(3, 4)
 			
+			#will have teleport space?
 			randomize()
-			var tele = (randi() % 2 == 1)
+			teleport = (randi() % 2 == 1)
 			
 			#8 total
-			spaces_list.append(create_space(Space.Type.TELEPORT if tele else Space.Type.FIGHT, Space.Data.new() if tele else Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.TELEPORT if teleport else Space.Type.FIGHT, Space.Data.new() if teleport else Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-			spaces_list.append(create_space(Space.Type.ENCOUNTER, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
 			spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
 			
-			for n in ring1.size():
-				if n % 2 == 0:
-					counter += 1
-					if counter == wall_count:
-						#place wall
-						counter = 0
-				else:
-					add_child(spaces_list.pop_at(randi() % spaces_list.size()))
+			for n in ring1_markers.size():
+				ring1_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
+				#wall logic too
 		2:
-			pass
+			#how many walls?
+			randomize()
+			wall_count = randi_range(0, 1)
+			
+			#12 total
+			spaces_list.append(create_space(Space.Type.TELEPORT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
+			
+			randomize()
+			match randi_range(1, 6):
+				1:
+					spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+				2:
+					spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
+				3:
+					spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
+				4:
+					spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
+				5:
+					spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
+				6:
+					spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
+			
+			for n in ring2_markers.size():
+				ring2_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
+				#wall logic too
 		3:
-			pass
+			#3-5 walls?
+			randomize()
+			wall_count = randi_range(3, 5)
+			
+			#16 total
+			spaces_list.append(create_space(Space.Type.TELEPORT if !teleport else Space.Type.FIGHT, Space.Data.new() if !teleport else Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
+			spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
+			
+			for n in ring3_markers.size():
+				ring3_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
+				#wall logic too
 
 func create_wall():
 	pass
