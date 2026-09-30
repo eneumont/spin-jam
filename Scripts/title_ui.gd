@@ -4,13 +4,15 @@ extends Control
 @export var options: Panel
 @export var saves: Panel
 
-var screens =[
-	title,
-	options,
-	saves
-]
+var screens: Array
 
 func _ready() -> void:
+	screens = [
+		title,
+		saves,
+		options,
+	]
+	
 	pick_screen(0)
 
 func play_click():
@@ -24,5 +26,5 @@ func quit_click():
 
 ## 0 - title, 1 - options, 2 - saves
 func pick_screen(select: int):
-	for i in screens.size() - 1:
+	for i in screens.size():
 		screens[i].visible = true if i == select else false

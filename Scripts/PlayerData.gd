@@ -3,7 +3,13 @@ extends Node
 var avaiable_spaces: Array[Node2D]
 var spins: Dictionary
 
-var round: int = 1
+var round: int = 0
+
+var cur_slot: int = 0
+
+var tutorial: bool = true
+
+var copy: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,10 +19,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func save_data():
-	pass
+func save_data() -> Dictionary:
+	return {
+		
+	}
 	
-func load_data():
+func load_data(data: Dictionary):
 	pass
 
 func reset_data():

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="SpinJam"
-run/main_scene="uid://ks7r04rh6de1"
+run/main_scene="uid://cuygiq6f165vj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerData="*uid://b4hkebh73ayef"
+SaveManager="*uid://dqa2lam3yy6sf"
 
 [display]
 
