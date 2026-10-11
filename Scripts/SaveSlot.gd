@@ -15,10 +15,10 @@ func design():
 
 func play():
 	if PlayerData.copy:
-		#if await confirm():
-			#SaveManager.save_game(slot, SaveManager.load_game(PlayerData.cur_slot))
-			#empty = false
-			#design()
+		if await confirm():
+			SaveManager.save_game(slot, SaveManager.load_game(PlayerData.cur_slot))
+			empty = false
+			design()
 		PlayerData.copy = !PlayerData.copy
 		return
 	
@@ -27,16 +27,25 @@ func play():
 	get_tree().change_scene_to_file("res://Scenes/Levels/TestLv.tscn")
 
 ##work on this
-func confirm(yesFunc: Callable, noFunc: Callable) -> bool:
+func confirm():
+	var affirm := false
+	var yesclick = func():
+		affirm = true
+		
+	var noclick = func():
+		affirm = false
+	
 	confirm_menu.visible = true
-	confirm_menu.get_node("yesBtn").connect("button_up", yesFunc)
-	confirm_menu.get_node("noBtn").connect("button_up", noFunc)
+	confirm_menu.get_node("yesBtn").connect("button_up", yesclick)
+	confirm_menu.get_node("noBtn").connect("button_up", noclick)
 	get_tree().paused = true
+	
+	#TODO -> dont eecute next step til either button is pressed
 	
 	confirm_menu.visible = false
 	get_tree().paused = false
-	return true
-
+	return affirm
+	
 func copy():
 	PlayerData.copy = !PlayerData.copy
 	if PlayerData.copy: PlayerData.cur_slot = slot
@@ -44,7 +53,7 @@ func copy():
 func delete():
 	if PlayerData.copy: return
 	
-	#if await confirm():
-		#SaveManager.delete_save(slot)
-		#empty = true
-		#design()
+	if await confirm():
+		SaveManager.delete_save(slot)
+		empty = true
+		design()
