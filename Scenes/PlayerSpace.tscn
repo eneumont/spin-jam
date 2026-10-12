@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dm0cu7uswhg25"]
+
+[ext_resource type="Texture2D" uid="uid://c3qxwbh0s1mnm" path="res://Textures/player_space.png" id="1_8ohei"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5y05v"]
+height = 46.0
+
+[node name="PlayerSpace" type="Node2D" unique_id=2048379232]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1653453149]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_8ohei")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=791075939]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=700912109]
+shape = SubResource("CapsuleShape2D_5y05v")

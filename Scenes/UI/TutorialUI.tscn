@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://fg43bgedw3hn"]
+
+[ext_resource type="Script" uid="uid://fsaowca0phfd" path="res://Scripts/tutorial_ui.gd" id="1_miii1"]
+
+[node name="TutorialUI" type="Control" unique_id=578579831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_miii1")
+
+[node name="BG" type="Panel" parent="." unique_id=1169373356]
+self_modulate = Color(1, 1, 1, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkipBtn" type="Button" parent="." unique_id=1282509709]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 41.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Skip"
+
+[node name="Confirm" type="Panel" parent="." unique_id=387649174]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfirmTxt" type="Label" parent="Confirm" unique_id=762505285]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.0
+offset_top = 26.0
+offset_right = 248.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 31
+text = "Do you want to skip the tutorial?"
+
+[node name="YesBtn" type="Button" parent="Confirm" unique_id=433193309]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 96.0
+offset_right = 206.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 44
+text = "Yes"
+
+[node name="NoBtn" type="Button" parent="Confirm" unique_id=1588040476]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 98.0
+offset_right = 365.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 44
+text = "No"
+
+[node name="Welcome" type="Panel" parent="." unique_id=1002757137]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -175.0
+offset_right = 300.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleTxt" type="Label" parent="Welcome" unique_id=442672565]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 37
+text = "Welcome new hire to [Company]! We hope this training exercise will help show you what a \"Day in the Office\" is like..."
+autowrap_mode = 2
+
+[node name="NextBtn" type="Button" parent="Welcome" unique_id=151811687]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.5
+offset_top = -94.0
+offset_right = 41.5
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 44
+text = ">>>"
+
+[node name="FirstInfo" type="Panel" parent="." unique_id=382237927]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -175.0
+offset_right = 300.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleTxt" type="Label" parent="FirstInfo" unique_id=1633633038]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "At [company] we do and make a lot of things! And your purpose is to stress test said things! First pick what you feel will be most helpful..."
+autowrap_mode = 2
+
+[node name="NextBtn" type="Button" parent="FirstInfo" unique_id=1305438430]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -41.5
+offset_top = -94.0
+offset_right = 41.5
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 44
+text = ">>>"
+
+[connection signal="button_up" from="SkipBtn" to="." method="skip"]
+[connection signal="button_up" from="Confirm/YesBtn" to="." method="skip"]
+[connection signal="button_up" from="Confirm/NoBtn" to="." method="next"]
+[connection signal="button_up" from="Welcome/NextBtn" to="." method="next"]
+[connection signal="button_up" from="FirstInfo/NextBtn" to="." method="next"]

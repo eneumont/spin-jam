@@ -23,7 +23,7 @@ var space_type: Type = Type.START
 var data: Data
 
 func setup():
-	pass
+	$Sprite.texture = load("res://Textures/Circles/" + Type.keys()[space_type].to_lower() + "_circle.png")
 
 func activate():
 	match space_type:

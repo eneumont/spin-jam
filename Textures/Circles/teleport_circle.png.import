@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwrfgvfbwupyt"
-path="res://.godot/imported/circleo.png-f9ba29e8939daa596419d8a845f1ad44.ctex"
+uid="uid://cwok6bvtw2uou"
+path="res://.godot/imported/teleport_circle.png-863f4168dec005e0d4658a018e383c4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/circleo.png"
-dest_files=["res://.godot/imported/circleo.png-f9ba29e8939daa596419d8a845f1ad44.ctex"]
+source_file="res://Textures/Circles/teleport_circle.png"
+dest_files=["res://.godot/imported/teleport_circle.png-863f4168dec005e0d4658a018e383c4c.ctex"]
 
 [params]
 

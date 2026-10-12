@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fvynt5tt0bd6"]
 
 [ext_resource type="Script" uid="uid://c6yt8lmtppcwt" path="res://Scripts/Space.gd" id="2_4bgmn"]
-[ext_resource type="Texture2D" uid="uid://dwrfgvfbwupyt" path="res://Textures/circleo.png" id="2_5y05v"]
+[ext_resource type="Texture2D" uid="uid://dwrfgvfbwupyt" path="res://Textures/Circles/circleo.png" id="2_5y05v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_di8lm"]
 radius = 25.0

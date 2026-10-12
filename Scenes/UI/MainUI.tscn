@@ -10,3 +10,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_58co4")
+
+[node name="Panel" type="Panel" parent="." unique_id=1330296188]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="List" type="HBoxContainer" parent="Panel" unique_id=2037084318]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyImg" type="TextureRect" parent="Panel/List" unique_id=993411234]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyTxt" type="Label" parent="Panel/List" unique_id=1480112206]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1

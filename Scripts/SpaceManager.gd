@@ -1,6 +1,7 @@
 extends Node2D
 
 var space_scn: PackedScene = preload("res://Scenes/Space.tscn")
+var player_scn: PackedScene = preload("res://Scenes/PlayerSpace.tscn")
 
 var teleport : bool = false
 
@@ -24,6 +25,10 @@ func _ready() -> void:
 
 func setup():
 	start_marker.add_child(create_space(Space.Type.START, Space.Data.new()))
+	var player = player_scn.instantiate()
+	add_child(player)
+	player.position = start_marker.position
+	
 	for i in range(3):
 		set_ring(i + 1)
 
@@ -125,5 +130,6 @@ func create_space(type: Space.Type, data: Space.Data) -> Space:
 	var new_space := space_scn.instantiate()
 	new_space.space_type = type
 	new_space.data = data
+	new_space.setup()
 	
 	return new_space

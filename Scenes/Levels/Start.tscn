@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dm185mug7rpf0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_di8lm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywg1y"]
+
+[node name="Node2D" type="Node2D" unique_id=1058802013]
+
+[node name="Chars" type="Node2D" parent="." unique_id=1930108695]
+
+[node name="Char1" type="AnimatedSprite2D" parent="Chars" unique_id=1514074738]
+position = Vector2(105, 147)
+sprite_frames = SubResource("SpriteFrames_di8lm")
+
+[node name="Char2" type="AnimatedSprite2D" parent="Chars" unique_id=747871253]
+position = Vector2(366, 230)
+sprite_frames = SubResource("SpriteFrames_di8lm")
+
+[node name="Char3" type="AnimatedSprite2D" parent="Chars" unique_id=489141569]
+position = Vector2(211, 317)
+sprite_frames = SubResource("SpriteFrames_di8lm")
+
+[node name="Interacts" type="Node2D" parent="." unique_id=1255961283]
+
+[node name="Interact1" type="AnimatedSprite2D" parent="Interacts" unique_id=1081322213]
+position = Vector2(531, 130)
+sprite_frames = SubResource("SpriteFrames_ywg1y")
+
+[node name="Interact2" type="AnimatedSprite2D" parent="Interacts" unique_id=1588095744]
+position = Vector2(1067, 244)
+sprite_frames = SubResource("SpriteFrames_ywg1y")
+
+[node name="Interact3" type="AnimatedSprite2D" parent="Interacts" unique_id=281804257]
+position = Vector2(1028, 525)
+sprite_frames = SubResource("SpriteFrames_ywg1y")

@@ -24,7 +24,8 @@ func play():
 	
 	PlayerData.cur_slot = slot
 	if !empty: PlayerData.load_data(SaveManager.load_game(slot))
-	get_tree().change_scene_to_file("res://Scenes/Levels/TestLv.tscn")
+	if PlayerData.tutorial: get_tree().change_scene_to_file("res://Scenes/Levels/Tutorial.tscn")
+	else: get_tree().change_scene_to_file("res://Scenes/Levels/Start.tscn")
 
 ##work on this
 func confirm():
