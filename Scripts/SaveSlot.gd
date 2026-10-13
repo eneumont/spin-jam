@@ -41,7 +41,7 @@ func confirm():
 	confirm_menu.get_node("noBtn").connect("button_up", noclick)
 	get_tree().paused = true
 	
-	#TODO -> dont eecute next step til either button is pressed
+	#TODO -> dont execute next step til either button is pressed
 	
 	confirm_menu.visible = false
 	get_tree().paused = false
