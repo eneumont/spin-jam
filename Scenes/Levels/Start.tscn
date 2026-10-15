@@ -1,8 +1,36 @@
 [gd_scene format=3 uid="uid://dm185mug7rpf0"]
 
+[ext_resource type="Script" uid="uid://bgihi0icfgjni" path="res://Scripts/StartInteracts.gd" id="1_reafo"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_di8lm"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"play",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yto57"]
+radius = 21.0
+height = 66.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywg1y"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"play",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=1058802013]
 
@@ -11,25 +39,72 @@
 [node name="Char1" type="AnimatedSprite2D" parent="Chars" unique_id=1514074738]
 position = Vector2(105, 147)
 sprite_frames = SubResource("SpriteFrames_di8lm")
+animation = &"idle"
+script = ExtResource("1_reafo")
+
+[node name="Area2D" type="Area2D" parent="Chars/Char1" unique_id=1002655073]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chars/Char1/Area2D" unique_id=572229725]
+shape = SubResource("CapsuleShape2D_yto57")
 
 [node name="Char2" type="AnimatedSprite2D" parent="Chars" unique_id=747871253]
 position = Vector2(366, 230)
 sprite_frames = SubResource("SpriteFrames_di8lm")
+animation = &"idle"
+script = ExtResource("1_reafo")
+type = 1
+
+[node name="Area2D" type="Area2D" parent="Chars/Char2" unique_id=1275221778]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chars/Char2/Area2D" unique_id=1510428608]
+shape = SubResource("CapsuleShape2D_yto57")
 
 [node name="Char3" type="AnimatedSprite2D" parent="Chars" unique_id=489141569]
 position = Vector2(211, 317)
 sprite_frames = SubResource("SpriteFrames_di8lm")
+animation = &"idle"
+script = ExtResource("1_reafo")
+type = 2
+
+[node name="Area2D" type="Area2D" parent="Chars/Char3" unique_id=1699600148]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chars/Char3/Area2D" unique_id=1959402195]
+shape = SubResource("CapsuleShape2D_yto57")
 
 [node name="Interacts" type="Node2D" parent="." unique_id=1255961283]
 
-[node name="Interact1" type="AnimatedSprite2D" parent="Interacts" unique_id=1081322213]
+[node name="StartDoor" type="AnimatedSprite2D" parent="Interacts" unique_id=1081322213]
 position = Vector2(531, 130)
 sprite_frames = SubResource("SpriteFrames_ywg1y")
+animation = &"idle"
+script = ExtResource("1_reafo")
+type = 3
+
+[node name="Area2D" type="Area2D" parent="Interacts/StartDoor" unique_id=1657151446]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interacts/StartDoor/Area2D" unique_id=339842033]
+shape = SubResource("CapsuleShape2D_yto57")
 
 [node name="Interact2" type="AnimatedSprite2D" parent="Interacts" unique_id=1588095744]
 position = Vector2(1067, 244)
 sprite_frames = SubResource("SpriteFrames_ywg1y")
+animation = &"idle"
+script = ExtResource("1_reafo")
+type = 4
+
+[node name="Area2D" type="Area2D" parent="Interacts/Interact2" unique_id=1750342125]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interacts/Interact2/Area2D" unique_id=1906413847]
+shape = SubResource("CapsuleShape2D_yto57")
 
 [node name="Interact3" type="AnimatedSprite2D" parent="Interacts" unique_id=281804257]
 position = Vector2(1028, 525)
 sprite_frames = SubResource("SpriteFrames_ywg1y")
+animation = &"idle"
+script = ExtResource("1_reafo")
+type = 5
+
+[node name="Area2D" type="Area2D" parent="Interacts/Interact3" unique_id=2143620483]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interacts/Interact3/Area2D" unique_id=1121552693]
+shape = SubResource("CapsuleShape2D_yto57")

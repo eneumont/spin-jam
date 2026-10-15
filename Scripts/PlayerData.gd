@@ -3,7 +3,7 @@ extends Node
 var avaiable_spaces: Array[Node2D]
 var spins: Dictionary
 
-var round: int = 0
+var rounds: int = 0
 
 var cur_slot: int = 0
 
