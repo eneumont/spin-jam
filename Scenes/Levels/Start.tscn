@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://dm185mug7rpf0"]
 
 [ext_resource type="Script" uid="uid://bgihi0icfgjni" path="res://Scripts/StartInteracts.gd" id="1_reafo"]
+[ext_resource type="Texture2D" uid="uid://b40r0ixd3ont6" path="res://Textures/Circles/fight_circle.png" id="1_t57h0"]
+[ext_resource type="Texture2D" uid="uid://bys4bkgxu4e81" path="res://Textures/Circles/elite_fight_circle.png" id="2_eyajc"]
+[ext_resource type="Texture2D" uid="uid://c3qxwbh0s1mnm" path="res://Textures/player_space.png" id="4_eyajc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srhwg"]
+atlas = ExtResource("1_t57h0")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7fhm"]
+atlas = ExtResource("2_eyajc")
+region = Rect2(0, 0, 500, 500)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_di8lm"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srhwg")
+}],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7fhm")
+}],
 "loop": 1,
 "name": &"play",
 "speed": 5.0
@@ -19,9 +36,16 @@ animations = [{
 radius = 21.0
 height = 66.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiahu"]
+atlas = ExtResource("4_eyajc")
+region = Rect2(0, 0, 250, 250)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywg1y"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiahu")
+}],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0

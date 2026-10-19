@@ -22,6 +22,11 @@ var available_spaces: Array[Node2D]
 var space_type: Type = Type.START
 var data: Data
 
+var grid_pos: Vector2
+var visited: bool = false
+var neighbors: Array
+var act_neighbors: Array
+
 func setup():
 	$Sprite.texture = load("res://Textures/Circles/" + Type.keys()[space_type].to_lower() + "_circle.png")
 

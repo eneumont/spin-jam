@@ -11,6 +11,9 @@ var tutorial: bool = true
 
 var copy: bool = false
 
+## 1 - new hire 2 - senior 3 - clown
+var main_char: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

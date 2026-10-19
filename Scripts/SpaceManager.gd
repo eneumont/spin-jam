@@ -20,6 +20,8 @@ var row6
 @export var ring3_markers: Array[Marker]
 @export var start_marker: Marker
 
+var grid: Dictionary
+
 func _ready() -> void:
 	setup()
 
