@@ -10,10 +10,196 @@ var teleport : bool = false
 @export var ring3_markers: Array[Marker]
 @export var start_marker: Marker
 
-var grid: Dictionary
-
 func _ready() -> void:
-	setup()
+	set_marker_neighbors()
+	if PlayerData.tutorial: setup_tutorial() 
+	else: setup()
+
+#this is dumb, do better than this...
+#I'm bout to do the dumbest thing... nevermind...
+func set_marker_neighbors() -> void:
+	$Markers/Mark1.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark16,
+		Marker.Dir.DOWN: $Markers/Mark22,
+		Marker.Dir.LEFT: $Markers/Mark7,
+		Marker.Dir.RIGHT: $Markers/Mark2,
+	}
+	
+	$Markers/Mark2.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark3.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark14,
+		Marker.Dir.DOWN: $Markers/Mark17,
+		Marker.Dir.LEFT: $Markers/Mark2,
+		Marker.Dir.RIGHT: $Markers/Mark4,
+	}
+	
+	$Markers/Mark4.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark8,
+		Marker.Dir.DOWN: $Markers/Mark18,
+		Marker.Dir.LEFT: $Markers/Mark3,
+		Marker.Dir.RIGHT: $Markers/Mark5,
+	}
+	
+	$Markers/Mark5.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark11,
+		Marker.Dir.DOWN: $Markers/Mark20,
+		Marker.Dir.LEFT: $Markers/Mark4,
+		Marker.Dir.RIGHT: $Markers/Mark6,
+	}
+	
+	$Markers/Mark6.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark7.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark8.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark9.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark10.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark11.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark12.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark13.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark14.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark15.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark16.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark17.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark18.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark19.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark20.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark21.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark22.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark23.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark24.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark15,
+		Marker.Dir.DOWN: $Markers/Mark21,
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark3,
+	}
+	
+	$Markers/Mark25.Neighbors = {
+		Marker.Dir.UP: $Markers/Mark7,
+		Marker.Dir.DOWN: $Markers/Mark23,
+		Marker.Dir.LEFT: $Markers/Mark19,
+		Marker.Dir.RIGHT: $Markers/Mark16,
+	}
+
+#set markers avaiable neighbors to specific path and set specific spaces
+func setup_tutorial():
+	var mark = $Markers/Mark4
+	var new_space = space_scn.instantiate()
+	
+	$Spaces.add_child(new_space)
+	new_space.setup(Space.Type.START, Space.Data.new(), mark)
 
 func setup():
 	start_marker.add_child(create_space(Space.Type.START, Space.Data.new()))

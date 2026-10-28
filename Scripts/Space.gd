@@ -14,16 +14,23 @@ class Data:
 	func _init() -> void:
 		pass
 	
-var space_type: Type = Type.START
+var space_type: Type
 var data: Data
 
-var marker: Marker = null
+var marker: Marker
 var visited: bool = false
 
-func setup():
+func setup(type: Type, new_data: Data, mark: Marker):
+	space_type = type
+	data = new_data
+	marker = mark
+	
 	$Sprite.texture = load("res://Textures/Circles/" + Type.keys()[space_type].to_lower() + "_circle.png")
+	position = marker.position
 
 func activate():
+	visited = true 
+	
 	match space_type:
 		Type.START:
 			pass

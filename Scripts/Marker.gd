@@ -4,7 +4,6 @@ class_name Marker
 enum Dir {
 	UP, DOWN, LEFT, RIGHT,
 	UL, UR, DL, DR,
-	DLL, DRR,
 }
 
 var Neighbors: Dictionary = {
@@ -12,7 +11,6 @@ var Neighbors: Dictionary = {
 	Dir.LEFT: null, Dir.RIGHT: null,
 	Dir.UL: null, Dir.UR: null,
 	Dir.DL: null, Dir.DR: null,
-	Dir.DRR: null, Dir.DLL: null,
 }
 
 var available_Neighbors: Dictionary = {
@@ -20,7 +18,6 @@ var available_Neighbors: Dictionary = {
 	Dir.LEFT: null, Dir.RIGHT: null,
 	Dir.UL: null, Dir.UR: null,
 	Dir.DL: null, Dir.DR: null,
-	Dir.DRR: null, Dir.DLL: null,
 }
 
 var space: Space = null
