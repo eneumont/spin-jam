@@ -3,29 +3,22 @@ class_name Space
 
 enum Type {
 	START,
-	FIGHT,
-	ELITE_FIGHT,
-	BOSS_FIGHT,
-	EVENT,
-	RANDOM,
-	SPIN,
-	TREASURE,
-	TELEPORT,
-	END,
-	SHOP,
+	FIGHT, ELITE_FIGHT, BOSS_FIGHT,
+	EVENT, RANDOM, SPIN, TREASURE,
+	TELEPORT, END, SHOP,
 }
 
 class Data:
 	var tele_tp_pos: Vector3
 	
-var available_spaces: Array[Node2D]
+	func _init() -> void:
+		pass
+	
 var space_type: Type = Type.START
 var data: Data
 
-var grid_pos: Vector2
+var marker: Marker = null
 var visited: bool = false
-var neighbors: Array
-var act_neighbors: Array
 
 func setup():
 	$Sprite.texture = load("res://Textures/Circles/" + Type.keys()[space_type].to_lower() + "_circle.png")
@@ -58,4 +51,5 @@ func click(view: Node, evt: InputEvent, idx: int):
 	if evt is InputEventMouseButton and evt.is_pressed():
 		if PlayerData.avaiable_spaces.has(self):
 			#move player to this space
-			pass
+			if !visited:
+				activate()

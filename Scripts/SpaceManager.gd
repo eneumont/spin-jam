@@ -5,16 +5,6 @@ var player_scn: PackedScene = preload("res://Scenes/PlayerSpace.tscn")
 
 var teleport : bool = false
 
-var ring1
-var ring2
-var ring3
-var row1
-var row2
-var row3
-var row4
-var row5
-var row6
-
 @export var ring1_markers: Array[Marker]
 @export var ring2_markers: Array[Marker]
 @export var ring3_markers: Array[Marker]

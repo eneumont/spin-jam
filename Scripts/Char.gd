@@ -1,12 +1,8 @@
 class_name Char extends Resource
 
 enum Stat_Type {
-	Health,
-	Offense,
-	Endurance,
-	Utility,
-	Luck,
-	Mana,
+	Health, Offense, Endurance,
+	Utility, Luck, Mana,
 }
 
 @export var base_Stats: Dictionary = {
@@ -53,30 +49,14 @@ class SpinDial:
 	
 	## 0-2: Attack, 3-5: Heal, 6-8: Guard, 9-11: Regen, 12-14: Block, 15-17: Two-Hit, 18-20: Three Hit, 21-23: Aoe
 	enum Slot_Icon {
-		Light_Attack,
-		Moderate_Attack,
-		Heavy_Attack,
-		Light_Heal,
-		Moderate_Heal,
-		Heavy_Heal,
-		Light_Guard,
-		Moderate_Guard,
-		Heavy_Guard,
-		Light_Regen,
-		Moderate_Regen,
-		Heavy_Regen,
-		Light_Block,
-		Moderate_Block,
-		Heavy_Block,
-		Light_TwoHit,
-		Moderate_TwoHit,
-		Heavy_TwoHit,
-		Light_ThreeHit,
-		Moderate_ThreeHit,
-		Heavy_ThreeHit,
-		Light_Aoe,
-		Moderate_Aoe,
-		Heavy_Aoe,
+		Light_Attack, Moderate_Attack, Heavy_Attack,
+		Light_Heal, Moderate_Heal, Heavy_Heal,
+		Light_Guard, Moderate_Guard, Heavy_Guard,
+		Light_Regen, Moderate_Regen, Heavy_Regen,
+		Light_Block, Moderate_Block, Heavy_Block,
+		Light_TwoHit, Moderate_TwoHit, Heavy_TwoHit,
+		Light_ThreeHit, Moderate_ThreeHit, Heavy_ThreeHit,
+		Light_Aoe, Moderate_Aoe, Heavy_Aoe,
 	}
 	
 	enum Combo_Effect {
