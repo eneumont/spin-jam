@@ -15,12 +15,11 @@ position = Vector2(290, 303)
 [node name="RoomBg" type="Sprite2D" parent="Backgrounds" unique_id=452050320]
 position = Vector2(849, 306)
 
-[node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238 node_paths=PackedStringArray("ring1_markers", "ring2_markers", "ring3_markers", "start_marker")]
+[node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238 node_paths=PackedStringArray("ring1_markers", "ring2_markers", "ring3_markers")]
 script = ExtResource("1_dl4mt")
-ring1_markers = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-ring2_markers = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-ring3_markers = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
-start_marker = NodePath("")
+ring1_markers = [null, null, null, null, null, null, null, null]
+ring2_markers = [null, null, null, null, null, null, null, null, null, null, null, null]
+ring3_markers = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="Markers" type="Node2D" parent="SpaceManager" unique_id=1645097055]
 position = Vector2(0, 40)
@@ -135,4 +134,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TutorialUI" parent="CanvasLayer" unique_id=578579831 instance=ExtResource("4_se31e")]
-process_mode = 3

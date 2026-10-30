@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://fsaowca0phfd" path="res://Scripts/tutorial_ui.gd" id="1_miii1"]
 
 [node name="TutorialUI" type="Control" unique_id=578579831]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
