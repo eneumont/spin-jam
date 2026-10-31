@@ -20,6 +20,8 @@ var data: Data
 var marker: Marker
 var visited: bool = false
 
+var manager
+
 func setup(type: Type, new_data: Data, mark: Marker):
 	space_type = type
 	data = new_data
@@ -55,8 +57,13 @@ func fight():
 	pass
 
 func click(view: Node, evt: InputEvent, idx: int):
+	print("click")
 	if evt is InputEventMouseButton and evt.is_pressed():
+		print("click1")
 		if PlayerData.avaiable_spaces.has(self):
-			#move player to this space
+			print("click2")
+			manager.move_player(position)
+			PlayerData.avaiable_spaces = marker.available_Neighbors.values()
 			if !visited:
+				print("click3")
 				activate()

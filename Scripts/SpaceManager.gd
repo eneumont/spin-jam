@@ -5,15 +5,16 @@ var player_scn: PackedScene = preload("res://Scenes/PlayerSpace.tscn")
 
 var teleport : bool = false
 
-@export var ring1_markers: Array[Marker]
-@export var ring2_markers: Array[Marker]
-@export var ring3_markers: Array[Marker]
-@export var start_marker: Marker
-
 func _ready() -> void:
 	set_marker_neighbors()
 	if PlayerData.tutorial: setup_tutorial() 
 	else: setup()
+	
+	PlayerData.avaiable_spaces = $Markers/Mark4.available_Neighbors.values()
+	
+	var player = player_scn.instantiate()
+	add_child(player)
+	player.position = $Markers/Mark4.position
 
 #this is dumb, do better than this...
 #I'm bout to do the dumbest thing... nevermind...
@@ -26,7 +27,7 @@ func set_marker_neighbors() -> void:
 	}
 	
 	$Markers/Mark2.Neighbors = {
-		Marker.Dir.UP: $Markers/Mar1,
+		Marker.Dir.UP: $Markers/Mark1,
 		Marker.Dir.DOWN: $Markers/Mark3,
 		Marker.Dir.LEFT: $Markers/Mark21,
 		Marker.Dir.RIGHT: $Markers/Mark15,
@@ -199,121 +200,133 @@ func set_marker_neighbors() -> void:
 
 #set markers avaiable neighbors to specific path and set specific spaces
 func setup_tutorial():
+	#tutorial spaces
 	var mark = $Markers/Mark4
-	var new_space = space_scn.instantiate()
+	create_space(Space.Type.START, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.UP: $Markers/Mark8,
+		Marker.Dir.UR: $Markers/Mark11,
+		Marker.Dir.RIGHT: $Markers/Mark5,
+		Marker.Dir.DR: $Markers/Mark20
+	}
 	
-	$Spaces.add_child(new_space)
-	new_space.setup(Space.Type.START, Space.Data.new(), mark)
+	mark = $Markers/Mark8
+	create_space(Space.Type.EVENT, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.RIGHT: $Markers/Mark11,
+		Marker.Dir.DOWN: $Markers/Mark4
+	}
+	
+	mark = $Markers/Mark11
+	create_space(Space.Type.FIGHT, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.DOWN: $Markers/Mark4,
+		Marker.Dir.LEFT: $Markers/Mark8,
+		Marker.Dir.RIGHT: $Markers/Mark5
+	}
+	
+	mark = $Markers/Mark5
+	create_space(Space.Type.RANDOM, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.UP: $Markers/Mark4,
+		Marker.Dir.RIGHT: $Markers/Mark20,
+		Marker.Dir.LEFT: $Markers/Mark11,
+	}
+	
+	mark = $Markers/Mark20
+	create_space(Space.Type.SPIN, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.UP: $Markers/Mark4,
+		Marker.Dir.DOWN: $Markers/Mark19,
+		Marker.Dir.LEFT: $Markers/Mark5
+	}
+	
+	mark = $Markers/Mark19
+	create_space(Space.Type.END, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.UP: $Markers/Mark20,
+		Marker.Dir.RIGHT: $Markers/Mark24
+	}
+	
+	mark = $Markers/Mark24
+	create_space(Space.Type.TELEPORT, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.LEFT: $Markers/Mark19
+	}
+	
+	mark = $Markers/Mark1
+	create_space(Space.Type.TELEPORT, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.RIGHT: $Markers/Mark16
+	}
+	
+	mark = $Markers/Mark16
+	create_space(Space.Type.TREASURE, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.LEFT: $Markers/Mark1,
+		Marker.Dir.RIGHT: $Markers/Mark10
+	}
+	
+	mark = $Markers/Mark10
+	create_space(Space.Type.SHOP, Space.Data.new(), mark)
+	mark.available_Neighbors = {
+		Marker.Dir.LEFT: $Markers/Mark16
+	}
+	
+	#empty spaces
+	mark = $Markers/Mark13
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark7
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark25
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark23
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark22
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark21
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark2
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark15
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark9
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark12
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark6
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark18
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark17
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark3
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
+	
+	mark = $Markers/Mark14
+	create_space(Space.Type.BOSS_FIGHT, Space.Data.new(), mark)
 
 func setup():
-	#start_marker.add_child(create_space(Space.Type.START, Space.Data.new()))
-	#var player = player_scn.instantiate()
-	#add_child(player)
-	#player.position = start_marker.position
-	#
-	#for i in range(3):
-		#set_ring(i + 1)
 	pass
 
-func set_ring(row: int):
-	#var wall_count: int
-	#var counter: int
-	#var spaces_list: Array[Node2D]
-	#
-	#match row:
-		#1:
-			##4 or 3 walls?
-			#randomize()
-			#wall_count = randi_range(3, 4)
-			#
-			##will have teleport space?
-			#randomize()
-			#teleport = (randi() % 2 == 1)
-			#
-			##8 total
-			#spaces_list.append(create_space(Space.Type.TELEPORT if teleport else Space.Type.FIGHT, Space.Data.new() if teleport else Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
-			#
-			#for n in ring1_markers.size():
-				#ring1_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
-				##wall logic too
-		#2:
-			##how many walls?
-			#randomize()
-			#wall_count = randi_range(0, 1)
-			#
-			##12 total
-			#spaces_list.append(create_space(Space.Type.TELEPORT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
-			#
-			#randomize()
-			#match randi_range(1, 6):
-				#1:
-					#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-				#2:
-					#spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
-				#3:
-					#spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
-				#4:
-					#spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
-				#5:
-					#spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-				#6:
-					#spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
-			#
-			#for n in ring2_markers.size():
-				#ring2_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
-				##wall logic too
-		#3:
-			##3-5 walls?
-			#randomize()
-			#wall_count = randi_range(3, 5)
-			#
-			##16 total
-			#spaces_list.append(create_space(Space.Type.TELEPORT if !teleport else Space.Type.FIGHT, Space.Data.new() if !teleport else Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.EVENT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SPIN, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.ELITE_FIGHT, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.RANDOM, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.SHOP, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
-			#spaces_list.append(create_space(Space.Type.TREASURE, Space.Data.new()))
-			#
-			#for n in ring3_markers.size():
-				#ring3_markers.get(n).add_child(spaces_list.pop_at(randi() % spaces_list.size()))
-				##wall logic too
-	pass
+func create_space(type: Space.Type, data: Space.Data, mark: Node):
+	var new_space = space_scn.instantiate()
+	$Spaces.add_child(new_space)
+	new_space.setup(type, data, mark)
+	new_space.manager = self
 
-func create_wall():
-	pass
-
-func create_space(type: Space.Type, data: Space.Data) -> Space:
-	var new_space := space_scn.instantiate()
-	new_space.space_type = type
-	new_space.data = data
-	new_space.setup()
-	
-	return new_space
+func move_player(new_pos: Vector2):
+	create_tween().tween_property($PlayerSpace, "position", new_pos, 1)
