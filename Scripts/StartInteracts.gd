@@ -4,8 +4,9 @@ enum Type {
 	NewHire,
 	Senior,
 	Clown,
+	Robot,
 	StartDoor,
-	Upgrades,
+	Rewards,
 	Loadout,
 }
 
@@ -31,11 +32,13 @@ func click(view: Node, evt: InputEvent, shape: int):
 					PlayerData.main_char = 2
 				Type.Clown:
 					PlayerData.main_char = 3
+				Type.Robot:
+					PlayerData.main_char = 4
 				Type.StartDoor:
 					if PlayerData.main_char != 0:
 						#do other setup stuff
 						get_tree().change_scene_to_file("res://Scenes/Levels/Main.tscn")
-				Type.Upgrades:
+				Type.Rewards:
 					pass
 				Type.Loadout:
 					pass

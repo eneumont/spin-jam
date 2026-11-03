@@ -1,6 +1,6 @@
 extends Node2D
 
-var space_scn: PackedScene = preload("res://Scenes/Space.tscn")
+var space_scn: PackedScene = load("res://Scenes/Space.tscn")
 var player_scn: PackedScene = preload("res://Scenes/PlayerSpace.tscn")
 
 var teleport : bool = false

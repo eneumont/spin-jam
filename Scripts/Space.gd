@@ -26,9 +26,12 @@ func setup(type: Type, new_data: Data, mark: Marker):
 	space_type = type
 	data = new_data
 	marker = mark
+	position = marker.position
 	
 	$Sprite.texture = load("res://Textures/Circles/" + Type.keys()[space_type].to_lower() + "_circle.png")
-	position = marker.position
+	print(get_signal_connection_list("input_event"))
+	$Area2D.input_event.connect(click)
+	print(get_signal_connection_list("input_event"))
 
 func activate():
 	visited = true 
@@ -58,7 +61,7 @@ func fight():
 
 func click(view: Node, evt: InputEvent, idx: int):
 	print("click")
-	if evt is InputEventMouseButton and evt.is_pressed():
+	if evt is InputEventMouseButton and evt.is_released():
 		print("click1")
 		if PlayerData.avaiable_spaces.has(self):
 			print("click2")
