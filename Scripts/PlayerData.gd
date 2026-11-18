@@ -1,6 +1,6 @@
 extends Node
 
-var avaiable_spaces: Array
+var available_spaces: Array
 var spins: Dictionary
 
 var rounds: int = 0

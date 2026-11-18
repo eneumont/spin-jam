@@ -10,7 +10,7 @@ func _ready() -> void:
 	if PlayerData.tutorial: setup_tutorial() 
 	else: setup()
 	
-	PlayerData.avaiable_spaces = $Markers/Mark4.available_Neighbors.values()
+	PlayerData.available_spaces = $Markers/Mark4.available_Neighbors.values().map(func(mark): return mark.space)
 	
 	var player = player_scn.instantiate()
 	add_child(player)
@@ -329,4 +329,4 @@ func create_space(type: Space.Type, data: Space.Data, mark: Node):
 	new_space.manager = self
 
 func move_player(new_pos: Vector2):
-	create_tween().tween_property($PlayerSpace, "position", new_pos, 1)
+	create_tween().tween_property($PlayerSpace, "position", new_pos, 0.3)

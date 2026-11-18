@@ -135,7 +135,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=1058802013]
+[node name="Start" type="Node2D" unique_id=1058802013]
 
 [node name="Chars" type="Node2D" parent="." unique_id=1930108695]
 
