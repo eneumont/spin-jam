@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyx26vkw80cpq"]
 
 [ext_resource type="Script" uid="uid://b6opvr83asm8x" path="res://Scripts/SpaceManager.gd" id="1_dl4mt"]
+[ext_resource type="PackedScene" uid="uid://b8i1nhcw8h0no" path="res://Scenes/Levels/Room.tscn" id="1_fucd8"]
 [ext_resource type="Script" uid="uid://18qktxso5bea" path="res://Scripts/Marker.gd" id="2_se31e"]
 [ext_resource type="PackedScene" uid="uid://drtqqbfs6qy2x" path="res://Scenes/UI/MainUI.tscn" id="3_s8jsh"]
 [ext_resource type="PackedScene" uid="uid://fg43bgedw3hn" path="res://Scenes/UI/TutorialUI.tscn" id="4_se31e"]
@@ -12,10 +13,11 @@
 [node name="MapBg" type="Sprite2D" parent="Backgrounds" unique_id=2012299834]
 position = Vector2(290, 303)
 
-[node name="RoomBg" type="Sprite2D" parent="Backgrounds" unique_id=452050320]
-position = Vector2(849, 306)
+[node name="Room" parent="Backgrounds" unique_id=502063425 instance=ExtResource("1_fucd8")]
+position = Vector2(671, 125)
 
 [node name="SpaceManager" type="Node2D" parent="." unique_id=1019700238]
+position = Vector2(0, 50)
 script = ExtResource("1_dl4mt")
 
 [node name="Markers" type="Node2D" parent="SpaceManager" unique_id=1645097055]

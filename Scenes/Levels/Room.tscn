@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://b8i1nhcw8h0no"]
+
+[ext_resource type="Script" uid="uid://b4sxg0rtol6cd" path="res://Scripts/Room.gd" id="1_5itmk"]
+[ext_resource type="Texture2D" uid="uid://7mtp01c5tmbk" path="res://Textures/Start/startdoor.png" id="1_llchn"]
+[ext_resource type="Texture2D" uid="uid://c3qxwbh0s1mnm" path="res://Textures/Start/player_space.png" id="2_5itmk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yto57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vailg"]
+atlas = ExtResource("1_llchn")
+region = Rect2(0, 0, 300, 600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkerc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vailg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lln1n"]
+atlas = ExtResource("2_5itmk")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugpsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lln1n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llchn"]
+atlas = ExtResource("2_5itmk")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlji0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llchn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5itmk"]
+atlas = ExtResource("2_5itmk")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxbni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5itmk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Room" type="AnimatedSprite2D" unique_id=942421080]
+sprite_frames = SubResource("SpriteFrames_yto57")
+script = ExtResource("1_5itmk")
+
+[node name="Default" type="Node2D" parent="." unique_id=110115014]
+visible = false
+
+[node name="Door" type="AnimatedSprite2D" parent="Default" unique_id=1443723052]
+position = Vector2(244, 155)
+scale = Vector2(0.45209935, 0.45209935)
+sprite_frames = SubResource("SpriteFrames_nkerc")
+
+[node name="Char" type="AnimatedSprite2D" parent="Default" unique_id=557762693]
+position = Vector2(335, 334.00003)
+scale = Vector2(0.70715714, 0.70715714)
+sprite_frames = SubResource("SpriteFrames_ugpsd")
+
+[node name="Bot" type="AnimatedSprite2D" parent="Default" unique_id=2063740700]
+position = Vector2(114.00001, 334.00003)
+scale = Vector2(0.70715714, 0.70715714)
+sprite_frames = SubResource("SpriteFrames_tlji0")
+
+[node name="Start" type="Node2D" parent="." unique_id=920234135]
+visible = false
+
+[node name="WelcomeBot" type="AnimatedSprite2D" parent="Start" unique_id=15263915]
+position = Vector2(220, 114.41663)
+scale = Vector2(0.8513331, 0.8513331)
+sprite_frames = SubResource("SpriteFrames_gxbni")
+
+[node name="OptionsBox" type="VBoxContainer" parent="Start" unique_id=1112821897]
+offset_left = 57.0
+offset_top = 260.41663
+offset_right = 439.0
+offset_bottom = 481.41663
+scale = Vector2(0.8733554, 0.8733554)
+
+[node name="OptionBtn1" type="Button" parent="Start/OptionsBox" unique_id=622596439]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Option1
+is this thing a ma bob that does something cool"
+alignment = 0
+
+[node name="OptionBtn2" type="Button" parent="Start/OptionsBox" unique_id=1638138631]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Option2
+is this thing a ma bob that does something cool"
+alignment = 0
+
+[node name="OptionBtn3" type="Button" parent="Start/OptionsBox" unique_id=1087920266]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Option3
+is this thing a ma bob that does something cool"
+alignment = 0
+
+[node name="OpenText" type="Label" parent="Start" unique_id=811048618]
+offset_left = 6.0
+offset_top = 230.41663
+offset_right = 520.0
+offset_bottom = 262.41663
+scale = Vector2(0.8733554, 0.8733554)
+theme_override_font_sizes/font_size = 15
+text = "Welcome valued employee! How would you like to start your day?"
+horizontal_alignment = 1
+
+[node name="Event" type="Node2D" parent="." unique_id=1719334181]
+visible = false
+
+[node name="Fight" type="Node2D" parent="." unique_id=500664102]
+visible = false
