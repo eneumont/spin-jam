@@ -1,4 +1,5 @@
 extends AnimatedSprite2D
+class_name Room
 
 enum RoomType {
 	DEFAULT, START, FIGHT, 
@@ -23,7 +24,8 @@ func default():
 	pass
 	
 func start():
-	pass
+	for n in get_children():
+		n.visible = n.name == "Start"
 	
 func fight():
 	pass

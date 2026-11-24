@@ -5,7 +5,7 @@ var player_scn: PackedScene = preload("res://Scenes/PlayerSpace.tscn")
 
 var teleport : bool = false
 
-func _ready() -> void:
+func create() -> void:
 	set_marker_neighbors()
 	if PlayerData.tutorial: setup_tutorial() 
 	else: setup()
@@ -15,6 +15,7 @@ func _ready() -> void:
 	var player = player_scn.instantiate()
 	add_child(player)
 	player.position = $Markers/Mark4.position
+	$Markers/Mark4.space.activate()
 
 #this is dumb, do better than this...
 #I'm bout to do the dumbest thing... nevermind...
@@ -330,3 +331,8 @@ func create_space(type: Space.Type, data: Space.Data, mark: Node):
 
 func move_player(new_pos: Vector2):
 	create_tween().tween_property($PlayerSpace, "position", new_pos, 0.3)
+
+func changeRoom(newRoom: Room.RoomType):
+	var room = $"../Backgrounds/Room"
+	room.room_type = newRoom
+	room.set_room()

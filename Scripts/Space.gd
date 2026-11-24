@@ -36,7 +36,7 @@ func activate():
 	
 	match space_type:
 		Type.START:
-			pass
+			manager.changeRoom(Room.RoomType.START)
 		Type.FIGHT, Type.ELITE_FIGHT, Type.BOSS_FIGHT:
 			pass
 		Type.EVENT:
